@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <style>
+        .file_list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        .file_list li {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .file_list li img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h3><%=title%></h3>
+
+    <%if(parent){%>
+    <a href="<%=parentPath%>">上一层</a>
+    <%}%>
+    <ul class="file_list">
+        <%for(let i = 0;i < arr.length;i++){%>
+    <li>
+
+        <%if(arr[i].isFile){%>
+        <img src="/assets/images/file.png" alt="">
+        <%}else{%>
+        <img src="/assets/images/dir.png" alt="">
+        <%}%>
+        <a href="<%=arr[i].path%>"><%=arr[i].dirs%></a>
+    </li>
+    <%}%>
+    </ul>
+</body>
+
+</html>
